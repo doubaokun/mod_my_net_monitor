@@ -43,9 +43,9 @@ handle_cast(_Msg, State) ->
 handle_info({Event, Node, Data}, State) ->
   case Event of
      nodeup ->
-       ?INFO_MSG("Status change: ~p is up. (~p)\n", [Node, Data]);
+       ?ERROR_MSG("Status change: ~p is up. (~p)\n", [Node, Data]);
      nodedown ->
-       ?INFO_MSG("Status change: ~p is down. (~p)\n", [Node, Data])
+       ?ERROR_MSG("Status change: ~p is down. (~p)\n", [Node, Data])
   end,
   {noreply, State}.
 
